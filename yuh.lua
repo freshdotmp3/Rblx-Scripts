@@ -23,7 +23,7 @@ local window = library:CreateWindow({
 local options = library.Options
 
 -- general
-local general = Window:AddTab({Title = "General", Icon = "house"})
+local general = window:AddTab({Title = "General", Icon = "house"})
 
 general:AddToggle("auto_farm", {
 	Title = "Auto Farm",
