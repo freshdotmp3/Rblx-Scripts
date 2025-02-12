@@ -20,6 +20,7 @@ local window = library:CreateWindow({
 	MinimizeKey = Enum.KeyCode.LeftControl,
 	Transparency = false
 })
+library:ToggleTransparency(false)
 local options = library.Options
 
 -- general
@@ -79,13 +80,11 @@ spawn(function()
 			if _G.AutoFarm == true then
 				if (getzombie() == nil) then
 					localplayer.Character.HumanoidRootPart.CFrame = getplot().Plot.HitBox.CFrame * CFrame.new(0, 50, 0)
-					workspace.CurrentCamera.CameraSubject = getzombie().Humanoid
 				elseif not (getzombie() == nil) then
 					game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Weapons"):WaitForChild("TakeDamage"):FireServer(table.unpack({
 						[1] = getzombie().HumanoidRootPart,
 						[2] = _G.CustomDamage
 					}))
-					workspace.CurrentCamera.CameraSubject = getplot().Plot.HitBox
 					localplayer.Character.HumanoidRootPart.CFrame = getzombie().HumanoidRootPart.CFrame * CFrame.new(0, 50, 0)
 				end
 			end
